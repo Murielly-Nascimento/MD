@@ -1,0 +1,76 @@
+/*Note que para esse caso estou assumindo que o conjunto de dados fornecido
+consiste em dois atributos. Exemplo: valorX, valorY*/
+
+Escreve("Digite o nome do arquivo")
+nomeArquivo <- Leia()
+arquivo <- Abre(arquivo)
+
+linhas <- 0
+
+Enquanto linha em arquivo != EOF
+	linhas++
+
+Escreve("O arquivo possui " + linhas + " linhas")
+Escreve("Digite o tamanho da amostra: ")
+tamAmostra <- Leia()
+
+indices[tamAmostra] <- 0
+Enquanto i < tamAmostra
+	numeroAleatorio <- geraAleatorio(tamanho)
+	indices[i] = numeroAleatorio
+
+j <- 0
+linhas <- 0
+amostra[] <- 0
+Enquanto linha em arquivo != EOF
+	Se linhas == indices[j]
+		amostra[j] = linha
+fecha(arquivo)
+
+Enquanto opcao >= 1 e opcao <=3
+	Escreve("Distâncias de Minkowski")
+	Escreve("1 - Manhattan")
+	Escreve("2 - Euclidiana")	
+	Escreve("3 - Suprema")
+	Escreve("Digite uma opção: ")
+	opcao <- Leia()
+	
+	Se opção == 1
+		matrixDistancia[][] <- 0
+		Enquanto i < tamAmostra
+			j <- i+1
+			ponto1 <- amostra[i]
+			Enquanto j < tamAmostra
+				pontoN <- amostra[j]
+				distancia <- (ponto1[0] - pontoN[0]) + (ponto1[1] - pontoN[1])
+				matrixDistancia[i][j] <- distancia
+		Escreve(matrixDistancia)
+	Se opção == 2
+		matrixDistancia[][] <- 0
+		Enquanto i < tamAmostra
+			j <- i+1
+			ponto1 <- amostra[i]
+			Enquanto j < tamAmostra
+				pontoN <- amostra[j]
+				distancia <- Raiz((ponto1[0] - pontoN[0])^2 + (ponto1[1] - pontoN[1])^2)
+				matrixDistancia[i][j] <- distancia
+		Escreve(matrixDistancia)
+	Se opção == 3
+		matrixDistancia[][] <- 0
+		Enquanto i < tamAmostra
+			j <- i+1
+			ponto1 <- amostra[i]
+			Enquanto j < tamAmostra
+				pontoN <- amostra[j]
+				distancia <- Raiz3((ponto1[0] - pontoN[0])^3 + (ponto1[1] - pontoN[1])^3)
+				matrixDistancia[i][j] <- distancia
+		Escreve(matrixDistancia)
+	Senão
+		Break
+
+
+	
+
+
+
+
